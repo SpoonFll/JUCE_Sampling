@@ -68,7 +68,8 @@ public:
                   int midiNoteForNormalPitch,
                   double attackTimeSecs,
                   double releaseTimeSecs,
-                  double maxSampleLengthSeconds);
+                  double maxSampleLengthSeconds,
+                  double offsetInFile);
 
     /** Destructor. */
     ~SamplerSound() override;
