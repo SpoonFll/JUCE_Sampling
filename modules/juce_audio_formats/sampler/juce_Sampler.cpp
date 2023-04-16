@@ -62,9 +62,11 @@ bool SamplerSound::appliesToNote (int midiNoteNumber)
     return midiNotes[midiNoteNumber];
 }
 
-bool SamplerSound::appliesToChannel (int /*midiChannel*/)
+bool SamplerSound::appliesToChannel (int midiChannel)
 {
-    return true;
+    if(midiChannel == 1)
+        return true;
+    return false;
 }
 
 //==============================================================================
