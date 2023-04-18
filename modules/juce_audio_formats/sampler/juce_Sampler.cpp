@@ -57,14 +57,27 @@ SamplerSound::~SamplerSound()
 {
 }
 
-bool SamplerSound::appliesToNote (int midiNoteNumber)
+void SamplerSound::setApplyNote(int note)
 {
-    return midiNotes[midiNoteNumber];
+    applyNote=note;
 }
 
+bool SamplerSound::appliesToNote (int midiNoteNumber)
+{
+    if(applyNote==0)
+        return midiNotes[midiNoteNumber];
+    else if(applyNote==midiNoteNumber)
+        return true;
+    else
+        return false;
+}
+
+void SamplerSound::setChannel(int channel) {
+    this->channel=channel;
+}
 bool SamplerSound::appliesToChannel (int midiChannel)
 {
-    if(midiChannel == 1)
+    if(midiChannel == channel)
         return true;
     return false;
 }

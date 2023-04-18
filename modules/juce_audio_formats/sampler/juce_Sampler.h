@@ -78,6 +78,8 @@ public:
     /** Returns the sample's name */
     const String& getName() const noexcept                  { return name; }
 
+    void setApplyNote(int note);
+    void setChannel(int channel);
     /** Returns the audio sample data.
         This could return nullptr if there was a problem loading the data.
     */
@@ -99,7 +101,7 @@ private:
     std::unique_ptr<AudioBuffer<float>> data;
     double sourceSampleRate;
     BigInteger midiNotes;
-    int length = 0, midiRootNote = 0;
+    int length = 0, midiRootNote = 0,applyNote=0,channel=1;
 
     ADSR::Parameters params;
 
